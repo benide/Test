@@ -37,11 +37,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          julia --project=docs -e '
-            using Documenter: DocMeta, doctest
-            using Test
-            DocMeta.setdocmeta!(Test, :DocTestSetup, :(using Test); recursive=true)
-            doctest(Test)'
+          julia --project=docs/ -e 'using Pkg; Pkg.develop([PackageSpec(path=pwd())]); Pkg.instantiate()'
       - name: Build and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
