@@ -22,18 +22,18 @@ jobs:
         with:
           version: '1'
 
-      # - uses: julia-actions/cache@v1
-      #   with:
-      #     # WARNING: cache-registries is actually slower for Windows runners
-      #     cache-registries: "true"
-      #     # WARNING: cache-compiled can break with certain choices of OS and architecture.
-      #     # see https://github.com/julia-actions/cache/issues/11
-      #     cache-compiled: "true"
+      - uses: julia-actions/cache@v1
+        with:
+          # WARNING: cache-registries is actually slower for Windows runners
+          cache-registries: "true"
+          # WARNING: cache-compiled can break with certain choices of OS and architecture.
+          # see https://github.com/julia-actions/cache/issues/11
+          cache-compiled: "true"
 
       # - uses: julia-actions/julia-buildpkg@v1
       # - uses: julia-actions/julia-docdeploy@v1
       #   env:
-      #     GITHUB_TOKEN: ${{ secrets. }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: |
